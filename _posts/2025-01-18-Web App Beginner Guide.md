@@ -1,8 +1,8 @@
 ---
 title: "Web App Beginner Guide"
 date: 2025-01-18
+author: Shawn Szczepkowski
 ---
-# Web app beginner guide
 This guide is meant to serve as a resource for someone who has decided that web app pentesting or web application security is the path for them. With that being said there is no guide and no one plan that will work for everyone. In fact you don't need any structured learning at all as you could just learn everything on your own, but for most the trial and error path will likely be the longer path. If you are brand new with 0 IT experience there are some places you could start for that as well. The foundations below offer learning material for some of the basics needed by everyone who is interested in IT and again there is no one stop shop or one plan for all. The material is all free and you'll get back what you put into it. Any reading or video watching is best supplemented with some hands on practice.
 ## Foundational
 
