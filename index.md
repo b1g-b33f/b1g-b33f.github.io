@@ -1,7 +1,3 @@
----
-layout: home
----
-
 # Welcome to My Blog
 
 Here are all of my posts:
