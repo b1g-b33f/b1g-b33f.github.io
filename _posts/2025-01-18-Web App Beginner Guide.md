@@ -14,7 +14,7 @@ If you are brand new with 0 IT experience there are some places you could start 
 - Basics of hardware/operating systems (A+), networking (Network+), and cybersecurity (Security+). Take the certs if you want but the learning is all free here [Professor Messer](https://www.youtube.com/professormesser)
 
 
-### Beyond IT basics
+## Beyond IT basics
 If you are past the no experience point and have made the decision that web app is your jam, then the rest of these resources are for you. If you have decided that you are interested in pentesting, but unsure of what exactly it is you like, I highly recommend [Practical Ethical Hacking](https://academy.tcm-sec.com/p/practical-ethical-hacking-the-complete-course) from TCM security. It is a great first pentesting course and a one stop shop to get a taste of ethical hacking in general. 
 
 Another thing that should be discussed is when pursuing any job in IT especially a job like pentesting that is difficult to land as a beginner, a degree can help. Many employers allow substitution of IT work experience for a degree but many including govt contracts require a bachelors degree. Long story short, while you don't need a degree it can make life easier. I recommend [Western Governors University](https://www.wgu.edu/) (WGU). WGU allows you to move at your own pace potentially completing your degree much quicker saving a lot of time and money. It's an online university so will you miss out on the college experience? Crippling student loan debt, 4 years of greasy fast food, and sleeping in a dorm with a weird stranger? Yeah you'll miss that. 
