@@ -1,3 +1,5 @@
+Welcome to the blog! I'm Shawn, a former manager and blue collar worker now working in the world of offensive security. I'm hoping to share some of my journey and what I've learned along the way. I'm currently focused on web app pentesting and application security but constantly learning other areas of pentesting.
+
 # Most Recent Post
 
 {% assign most_recent_post = site.posts.first %}
@@ -26,5 +28,5 @@
 
 # Contact Me
 
-- [LinkedIn](https://www.linkedin.com/in/your-profile)
-- [Email](mailto:your-email@example.com)
+- [LinkedIn]([https://www.linkedin.com/in/your-profile](https://www.linkedin.com/in/shawn-szczepkowski/))
+- [Email](mailto:shawnszczepkowski@gmail.com)
