@@ -1,12 +1,30 @@
-# Welcome to My Blog
+# Most Recent Post
 
-Here are all of my posts:
+{% assign most_recent_post = site.posts.first %}
 
-{% for post in site.posts %}
-  <div class="post-preview">
-    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-    <p><em>{{ post.date | date: "%B %d, %Y" }}</em></p>
-    <p>{{ post.excerpt }}</p>
-    <a href="{{ post.url | relative_url }}">Read more</a>
-  </div>
+## [{{ most_recent_post.title }}]({{ most_recent_post.url | relative_url }})
+*{{ most_recent_post.date | date: "%B %d, %Y"}}*
+
+{{ most_recent_post.excerpt }}
+
+[Read more]({{ most_recent_post.url | relative_url }})
+
+---
+
+# All Posts
+
+{% for post in site.posts offset:1 %}
+## [{{ post.title }}]({{ post.url | relative_url }})
+*{{ post.date | date: "%B %d, %Y"}}*
+
+{{ post.excerpt }}
+
+[Read more]({{ post.url | relative_url }})
+
+---
 {% endfor %}
+
+# Contact Me
+
+- [LinkedIn](https://www.linkedin.com/in/your-profile)
+- [Email](mailto:your-email@example.com)
