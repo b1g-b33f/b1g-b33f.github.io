@@ -70,8 +70,8 @@ Another thing to consider is that networking is very helpful for finding gainful
 
 ### Expensive and possibly more resume impact 
 Courses not listed in training because I think the cheaper courses listed are just as good if not better.
-- [OSWA](https://www.offsec.com/courses/web-200/)
-- [OSWE](https://www.offsec.com/courses/web-300/)
+- [OffSec OSWA](https://www.offsec.com/courses/web-200/)
+- [OffSec OSWE](https://www.offsec.com/courses/web-300/)
 
 
 ## Useful sites methodology, tricks, tips, and payloads
