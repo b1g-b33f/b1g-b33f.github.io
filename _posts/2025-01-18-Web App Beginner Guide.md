@@ -30,7 +30,9 @@ Practicing your craft is a must. Bug bounty or setting up your own labs are grea
 
 Grabbing yourself a CVE would also be some resume gold. That's a long topic and will need to wait until you develop some of the basic skills you need, but my friend Tyler Ramsbey talks about that here ["I Found 8 CVEs in 2 Weeks (And You Can Too!)"](https://www.youtube.com/watch?v=2VB4Zd5C8N8).
 
-**The pathway I laid out above is just a suggestion for someone caught up in analysis paralysis.** The rest of the resources laid out here will be things that I have found useful and you can pick and choose at your own discretion. Another thing to consider is that networking is very helpful for finding gainful employment (people networking not TCP/IP). LinkedIn, Discord, and local meetups/conventions can help in this aspect but it's up to you to play well with others.
+**The pathway I laid out above is just a suggestion for someone caught up in analysis paralysis.** The rest of the resources laid out here will be things that I have found useful and you can pick and choose at your own discretion. If you follow my advice then I believe once you've gotten the Bug Bounty Hunter Path done, you should have a much easier time picking where to focus your efforts next on your own.
+
+Another thing to consider is that networking is very helpful for finding gainful employment (people networking not TCP/IP). LinkedIn, Discord, and local meetups/conventions can help in this aspect but it's up to you to play well with others.
 
 
 ## Web app pentesting training Material
