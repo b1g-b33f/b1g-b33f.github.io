@@ -10,8 +10,8 @@ If you are brand new with 0 IT experience there are some places you could start 
 ## Foundational
 
 ### Learn the basics for free (This is for ground zero, no IT experience)
-- TCM free tier Help Desk, Soft skills, Programming, Linux Basics https://tcm-sec.com/free-tier-launch/
-- Basics of hardware/operating systems (A+), networking (Network+), and cybersecurity (Security+). Take the certs if you want but the learning is all free here https://www.youtube.com/professormesser
+- TCM free tier Help Desk, Soft skills, Programming, Linux Basics [TCM FREE Tier](https://tcm-sec.com/free-tier-launch/)
+- Basics of hardware/operating systems (A+), networking (Network+), and cybersecurity (Security+). Take the certs if you want but the learning is all free here [Professor Messer](https://www.youtube.com/professormesser)
 
 
 ### Beyond IT basics
