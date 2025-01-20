@@ -28,5 +28,5 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now work
 
 # Contact Me
 
-- [LinkedIn]([https://www.linkedin.com/in/your-profile](https://www.linkedin.com/in/shawn-szczepkowski/))
+- [LinkedIn](https://www.linkedin.com/in/shawn-szczepkowski/))
 - [Email](mailto:shawnszczepkowski@gmail.com)
