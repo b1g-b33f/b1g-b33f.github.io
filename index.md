@@ -16,7 +16,7 @@ Welcome to the blog! I'm Shawn, a former car wash manager now working in the wor
 
 ---
 
-## All Posts
+## Previous Posts
 
 {% for post in site.posts offset:1 %}
 ## [{{ post.title }}]({{ post.url | relative_url }})
