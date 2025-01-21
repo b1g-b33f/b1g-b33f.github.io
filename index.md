@@ -16,7 +16,7 @@ Welcome to the blog! I'm Shawn, a former car wash manager now working in the wor
 
 ---
 
-# All Posts
+## All Posts
 
 {% for post in site.posts offset:1 %}
 ## [{{ post.title }}]({{ post.url | relative_url }})
@@ -29,7 +29,7 @@ Welcome to the blog! I'm Shawn, a former car wash manager now working in the wor
 ---
 {% endfor %}
 
-# Contact Me
+### Contact Me
 
 - [LinkedIn](https://www.linkedin.com/in/shawn-szczepkowski/)
 - [Email](mailto:shawnszczepkowski@gmail.com)
