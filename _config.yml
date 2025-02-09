@@ -1,5 +1,5 @@
 title: "b1gb33f_blog"
-description: "Web app pentesting and app sec"
+description: "Pentesting and AppSec"
 default_image: "/assets/images/b33f.jpg"
 remote_theme: pages-themes/hacker@v0.2.0
 plugins:
