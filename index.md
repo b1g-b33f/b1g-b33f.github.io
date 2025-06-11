@@ -1,4 +1,5 @@
-![banner2-cropped](https://github.com/user-attachments/assets/1eed58e5-32dc-4ce7-838d-fb34f1dced9e)
+![spider_logo_github_banner](https://github.com/user-attachments/assets/8de5194c-9dc8-4436-8788-45e3693a617c)
+
 
 
 
