@@ -1,4 +1,4 @@
-![spider_logo_github_banner](https://github.com/user-attachments/assets/8de5194c-9dc8-4436-8788-45e3693a617c)
+![Banner](https://github.com/user-attachments/assets/8de5194c-9dc8-4436-8788-45e3693a617c)
 
 
 
