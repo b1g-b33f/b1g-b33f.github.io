@@ -1,4 +1,5 @@
-![Banner](https://github.com/user-attachments/assets/4025a658-dc92-4e86-9a02-ee2e378bd8c5")
+<img width="1990" height="480" alt="gitbook_banner_1990x480" src="https://github.com/user-attachments/assets/3fdc69f8-863a-45bd-af99-a7791f354fa7" />
+
 
 
 
