@@ -29,6 +29,4 @@ Welcome to the blog! I'm Shawn, a former car wash manager now working in the wor
 {% endfor %}
 
 ### Contact Me
-
-- [LinkedIn](https://www.linkedin.com/in/shawn-szczepkowski/)
 - [Email](mailto:shawnszczepkowski@gmail.com)
