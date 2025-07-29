@@ -1,11 +1,4 @@
-![Banner](https://github.com/user-attachments/assets/43abb7d0-d64a-49e0-89d3-6375c82db61d)
-
-
-
-
-
-
-
+![Banner](https://github.com/user-attachments/assets/4287d2a3-d69b-474d-9213-5c12236bd635)
 
 Welcome to the blog! I'm Shawn, a former car wash manager now working in the world of offensive security. I'm hoping to share some of my journey and what I've learned along the way. I'm currently focused on web app pentesting and application security but constantly learning other areas of pentesting.
 
