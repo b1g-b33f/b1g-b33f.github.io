@@ -1,4 +1,4 @@
-<img width="1990" height="480" alt="gitbook_banner_1990x480" src="https://github.com/user-attachments/assets/3fdc69f8-863a-45bd-af99-a7791f354fa7" />
+![Banner](https://github.com/user-attachments/assets/3fdc69f8-863a-45bd-af99-a7791f354fa7)
 
 
 
