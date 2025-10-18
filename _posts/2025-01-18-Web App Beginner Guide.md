@@ -19,11 +19,11 @@ If you are past the no experience point and have made the decision that web app 
 
 Another thing that should be discussed is when pursuing any job in IT especially a job like pentesting that is difficult to land as a beginner, a degree can help. Many employers allow substitution of IT work experience for a degree but many including govt contracts require a bachelors degree. Long story short, while you don't need a degree it can make life easier. I recommend [Western Governors University](https://www.wgu.edu/) (WGU). WGU allows you to move at your own pace potentially completing your degree much quicker saving a lot of time and money. It's an online university so will you miss out on the college experience? Crippling student loan debt, 4 years of greasy fast food, and sleeping in a dorm with a weird stranger? Yeah you'll miss that. 
  
-My next disclaimer is that even if you have decided on web applications as your bread and butter, I highly recommend the [Penetration Tester Path](https://academy.hackthebox.com/path/preview/penetration-tester) from Hack The Box Academy. The wealth of knowledge it contains is valuable for anyone in offensive security and will keep you from one trick pony status. 
+My next disclaimer is that even if you have decided on web applications as your bread and butter, I highly recommend the [Penetration Tester Path](https://academy.hackthebox.com/path/preview/web-penetration-tester) from Hack The Box Academy. The wealth of knowledge it contains is valuable for anyone in offensive security and will keep you from one trick pony status. 
 
 If you really wanted to throw the cherry on top of your resume I would recommend taking the [OSCP](https://www.offsec.com/courses/pen-200/) certification after completing the Penetration Tester Path on Hack The box Academy. It's not a web app specific certification, but you will find it on more job postings than any other penetration testing certification.
 
-Finally getting to the topic of web app there are a few places we could start but I think the [Bug Bounty Hunter Path](https://academy.hackthebox.com/preview/certifications/htb-certified-bug-bounty-hunter) from Hack The Box Academy may be the best one stop shop I can come up with. It covers all the major topics, is well organized, and has all the labs included. The reason I chose this course is, if you follow it correctly and do all the extra reading and side projects they give you, you'll be learning about all the technologies you would be working with in depth, setting up your own web server and even building a basic web app. 
+Finally getting to the topic of web app there are a few places we could start but I think the [Web Penetration Tester Path](https://academy.hackthebox.com/preview/certifications/htb-certified-bug-bounty-hunter) from Hack The Box Academy may be the best one stop shop I can come up with. It covers all the major topics, is well organized, and has all the labs included. The reason I chose this course is, if you follow it correctly and do all the extra reading and side projects they give you, you'll be learning about all the technologies you would be working with in depth, setting up your own web server and even building a basic web app. 
 
 I would personally pair that with [Free Code Camp](https://www.freecodecamp.org/learn/) because well, it's free. You'll be able to learn HTML, CSS, JavaScript, SQL, Python, and C# all in one place. Do you need to learn to code? No. Does it help? Yes. Do you need to learn these languages? No. Are there other languages that would be useful? Yes. You'll come across many programming languages like PHP, Java, Ruby etc. The list could go on. Pick something you enjoy learning, or just pick up reading little scraps of code as you go. 
 
@@ -33,7 +33,7 @@ Practicing your craft is a must. Bug bounty or setting up your own labs are grea
 
 Grabbing yourself a CVE would also be some resume gold. That's a long topic and will need to wait until you develop some of the basic skills you need, but my friend Tyler Ramsbey talks about that here ["I Found 8 CVEs in 2 Weeks (And You Can Too!)"](https://www.youtube.com/watch?v=2VB4Zd5C8N8).
 
-**The pathway I laid out above is just a suggestion for someone caught up in analysis paralysis.** The rest of the resources laid out here will be things that I have found useful and you can pick and choose at your own discretion. If you follow my advice then I believe once you've gotten the Bug Bounty Hunter Path done, you should have a much easier time picking where to focus your efforts next on your own.
+**The pathway I laid out above is just a suggestion for someone caught up in analysis paralysis.** The rest of the resources laid out here will be things that I have found useful and you can pick and choose at your own discretion. If you follow my advice then I believe once you've gotten the Web Penetration Tester Path done, you should have a much easier time picking where to focus your efforts next on your own.
 
 Another thing to consider is that networking is very helpful for finding gainful employment (people networking not TCP/IP). LinkedIn, Discord, and local meetups/conventions can help in this aspect but it's up to you to play well with others.
 
@@ -42,7 +42,7 @@ Another thing to consider is that networking is very helpful for finding gainful
 
 ### Web app pentesting free courses
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)
-	- I recommend the bug bounty hunter path for beginners for the structure and foundational concepts. PortSwigger is just as good and in some ways better. The BSCP certification may also be the best bang for your buck as a web app resume cert.
+	- I recommend the Web Penetration Tester Path for beginners for the structure and foundational concepts. PortSwigger is just as good and in many ways better (but more advanced). The BSCP certification may also be the best bang for your buck as a web app resume cert.
 
 ### Free API training
 - [Postman Academy](https://academy.postman.com/)
@@ -51,7 +51,7 @@ Another thing to consider is that networking is very helpful for finding gainful
 
 ### Web app pentesting affordable paid courses
 - [TCM Academy Practical Bug Bounty, Practical Web Hacking, Practical API Hacking, Advanced Web Hacking](https://academy.tcm-sec.com)
-	- Also great material here and you'll find some vulnerabilities covered here that aren't in the bug bounty hunter path. If you do well with video learning these courses are the way.
+	- Also great material here and you'll find some vulnerabilities covered here that aren't in the Web Penetration Tester Path. If you do well with video learning these courses are the way.
 
 
 ### Web app pentesting expensive but worth it courses
@@ -61,7 +61,7 @@ Another thing to consider is that networking is very helpful for finding gainful
 ## Certifications
 
 ### Affordable and possibly less resume impact
-- [Hack the Box Certified Bug Bounty Hunter](https://academy.hackthebox.com/preview/certifications/htb-certified-bug-bounty-hunter)
+- [Hack the Box Certified Web Exploitation Specialist](https://academy.hackthebox.com/preview/certifications/htb-certified-web-exploitation-specialist)
 - [TCM Security Practical Web Pentest Associate](https://certifications.tcm-sec.com/pwpa/)
 - [TCM Security Practical Web Pentest Professional](https://certifications.tcm-sec.com/pwpp/)
 
@@ -99,7 +99,7 @@ A great way to meet people in the industry, find mentorship, and share resources
 
 ## Reading
 List to be updated as I find more helpful books and blog posts.
-- [Web Application Hackers Handbook](https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470) This and older book but the methodology and explanations of how all components of a web application work are great. If you were doing the Bug Bounty Hunter Path from HTB and PortSwigger you can easily skip this book but it's still worth the mention.
+- [Web Application Hackers Handbook](https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470) This and older book but the methodology and explanations of how all components of a web application work are great. If you were doing the Web Pentester Path from HTB and PortSwigger you can easily skip this book but it's still worth the mention.
 - [Red Team Field Manual](https://www.amazon.com/RTFM-Red-Team-Field-Manual/dp/1075091837/ref=pd_lpo_d_sccl_1/134-0980587-1022640?pd_rd_w=H78kq&content-id=amzn1.sym.4c8c52db-06f8-4e42-8e56-912796f2ea6c&pf_rd_p=4c8c52db-06f8-4e42-8e56-912796f2ea6c&pf_rd_r=TR5DSKBXJ789NW3JNWS4&pd_rd_wg=fD2mg&pd_rd_r=d4e00e87-3da5-4853-9b2b-de69622ab5c6&pd_rd_i=1075091837&psc=1) Not web app but contains enough useful information and just a cool book.
 - HTTP headers https://www.darkrelay.com/post/http-security-headers
 
