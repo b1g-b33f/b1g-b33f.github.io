@@ -1,6 +1,6 @@
 ![Banner](https://github.com/user-attachments/assets/4287d2a3-d69b-474d-9213-5c12236bd635)
 
-Welcome to the blog! I'm Shawn, a former car wash manager now working in the world of offensive security. I'm hoping to share some of my journey and what I've learned along the way. I'm currently focused on web app pentesting and application security but constantly learning other areas of pentesting.
+Welcome to the blog! I'm Shawn, a former manager and blue collar now employed in the world of offensive security. I'm hoping to share some of my journey and what I've learned along the way. I'm currently focused on web app pentesting and application security but constantly learning other areas of pentesting as well.
 
 # Most Recent Post
 
