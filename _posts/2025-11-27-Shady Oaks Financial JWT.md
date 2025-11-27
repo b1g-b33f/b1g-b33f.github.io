@@ -3,7 +3,7 @@ title: "Shady Oaks Financial JWT"
 date: 2025-11-27
 author: Shawn Szczepkowski
 ---
-Today we will be covering the Shady Oaks Financial JWT lab from https://bugforge.io. This is an easy rated lab.
+Today we will be covering the Shady Oaks Financial JWT lab from [bugforge.io](https://bugforge.io). This is an easy rated lab.
 
 We start out by registering our first test account:
 ```json
