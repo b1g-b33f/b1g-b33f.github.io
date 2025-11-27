@@ -12,7 +12,7 @@ We start out by registering our first test account:
 Since we know this is a JWT lab, let's start out by testing our JWT on the `/api/verify/token` endpoint. We know that this will always return a response that is directly affected by our JWT.
 
 In repeater a very easy test to start with is the `signing algorithm none` attack. We can easily test this with JWT editor in Burp:
-![JSON Web Token](assets/images/Pasted%20image%2020251127121815.png)
+![JSON Web Token](assets/images/Pasted image 20251127121815.png)
 
 We send the token and observe immediately that we get a 200 response meaning our attack worked:
 ![Verifying Attack](assets/images/Pasted%20image%2020251127121903.png)
