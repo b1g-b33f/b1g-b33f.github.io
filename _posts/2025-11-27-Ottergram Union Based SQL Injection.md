@@ -112,4 +112,4 @@ custom injection marker ('*') found in option '-u'. Do you want to process it? [
 
 
 After a short period of time, we see that SQLMap has found the `users` table, and the `admin` users password is our flag:
-![Content of users table](assets/images/Pasted%20image%2020251127154629.png)
+![Content of users table](/assets/images/Pasted%20image%2020251127154629.png)
