@@ -23,6 +23,7 @@ We send the token and observe immediately that we get a 200 response meaning our
 Let's try tampering with the JWT payload and see what we can access. 
 
 A first attempt at switching the username and role to `admin` is unsuccessful, but when we use the id of 1, we get back the information of Admin User in our response:
+
 ![Admin Payload](https://github.com/b1g-b33f/b1g-b33f.github.io/blob/main/assets/images/Pasted%20image%2020251127122100.png)
 
 ![Admin Response](https://github.com/b1g-b33f/b1g-b33f.github.io/blob/main/assets/images/Pasted%20image%2020251127122117.png)
