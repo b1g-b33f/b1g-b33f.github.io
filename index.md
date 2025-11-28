@@ -117,5 +117,3 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
   </aside>
 
 </div>
-
----
