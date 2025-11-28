@@ -1,3 +1,8 @@
+<div style="display:flex; gap:2rem; align-items:flex-start;">
+
+  <!-- MAIN CONTENT -->
+  <div style="flex:3; min-width:0;">
+
 ![Banner](/assets/images/new_banner.png)
 
 Welcome to the blog! I'm Shawn, a former manager and blue collar worker now employed in the world of offensive security. I'm hoping to share some of my journey and what I've learned along the way. I'm currently focused on web app pentesting and application security but constantly learning other areas of pentesting as well.
@@ -13,6 +18,7 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 </a>
 
 ---
+
 # Most Recent Post
 
 {% assign most_recent_post = site.posts.first %}
@@ -24,19 +30,34 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 
 ---
 
-<details>
-  <summary style="cursor: pointer;">
-  <h2 style="display:inline; color:#ff2bd3; font-weight:700;">All Posts</h2>
-</summary>
+  </div>
 
-  <ul>
+  <!-- SIDEBAR -->
+  <aside style="flex:1; min-width:220px; padding-left:1rem; border-left:2px solid #ff2bd3; font-size:0.9em;">
+
+  <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
+
+  <ul style="list-style:none; padding-left:0;">
+
   {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span> – {{ post.date | date: "%B %d, %Y" }}</span>
+    <li style="margin-bottom:0.75em;">
+      <a href="{{ post.url | relative_url }}"
+         style="color:#ff2bd3; text-decoration:none; font-weight:600; cursor:pointer;"
+         onmouseover="this.style.color='#ffffff';"
+         onmouseout="this.style.color='#ff2bd3';">
+        {{ post.title }}
+      </a><br>
+
+      <span style="font-size:0.8em; color:#d87abf;">
+        {{ post.date | date: "%b %d, %Y" }}
+      </span>
     </li>
   {% endfor %}
+
   </ul>
-</details>
+
+  </aside>
+
+</div>
 
 ---
