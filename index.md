@@ -30,7 +30,7 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 
 ---
 
-### Contact Me
-- [Email](mailto:shawnszczepkowski@gmail.com)
+### Connect with me
+- [Linktree]([https://linktr.ee/b1gb33f)
 
 
