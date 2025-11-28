@@ -1,6 +1,6 @@
 title: "b1gb33f_blog"
 description: "Pentesting and AppSec"
 default_image: "/assets/images/b33f.jpg"
-remote_theme: pages-themes/midnight@v0.2.0
+remote_theme: pages-themes/hacker@v0.2.0
 plugins:
   - jekyll-remote-theme
