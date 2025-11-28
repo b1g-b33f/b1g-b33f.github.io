@@ -1,7 +1,6 @@
 <div style="display:flex; gap:2rem; align-items:flex-start;">
 
-  <!-- MAIN CONTENT -->
-  <div style="flex:3; min-width:0;">
+  <div style="flex:3; min-width:0;" markdown="1">
 
 ![Banner](/assets/images/new_banner.png)
 
@@ -32,32 +31,26 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 
   </div>
 
-  <!-- SIDEBAR -->
   <aside style="flex:1; min-width:220px; padding-left:1rem; border-left:2px solid #ff2bd3; font-size:0.9em;">
 
-  <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
+    <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
 
-  <ul style="list-style:none; padding-left:0;">
+    <ul style="list-style:none; padding-left:0;">
 
-  {% for post in site.posts %}
-    <li style="margin-bottom:0.75em;">
-      <a href="{{ post.url | relative_url }}"
-         style="color:#ff2bd3; text-decoration:none; font-weight:600; cursor:pointer;"
-         onmouseover="this.style.color='#ffffff';"
-         onmouseout="this.style.color='#ff2bd3';">
-        {{ post.title }}
-      </a><br>
+    {% for post in site.posts %}
+      <li style="margin-bottom:0.75em;">
+        <a href="{{ post.url | relative_url }}"
+           style="color:#ff2bd3; text-decoration:none; font-weight:600;">
+          {{ post.title }}
+        </a><br>
+        <span style="font-size:0.8em; color:#d87abf;">
+          {{ post.date | date: "%b %d, %Y" }}
+        </span>
+      </li>
+    {% endfor %}
 
-      <span style="font-size:0.8em; color:#d87abf;">
-        {{ post.date | date: "%b %d, %Y" }}
-      </span>
-    </li>
-  {% endfor %}
-
-  </ul>
+    </ul>
 
   </aside>
 
 </div>
-
----
