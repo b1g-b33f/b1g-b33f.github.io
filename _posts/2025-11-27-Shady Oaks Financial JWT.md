@@ -28,7 +28,7 @@ A first attempt at switching the username and role to `admin` is unsuccessful, b
 
 ![Admin Response](/assets/images/Pasted%20image%2020251127122117.png)
 
-Now we could go right for the flag endpoint, but let's set up a match and replace rule in burp so that our JWT will be replaced by the comprised admin user token and we can persistently act as the admin with the following regex:
+Now we could go right for the flag endpoint, but let's set up a match and replace rule in Burp so that our JWT will be replaced by the forged admin user token and we can persistently act as the admin with the following regex:
 ```sh
 (?i)Authorization:\s*Bearer\s+[A-Za-z0-9_\-]+\.[A-Za-z0-9_\-]+\.[A-Za-z0-9_\-]+
 ```
