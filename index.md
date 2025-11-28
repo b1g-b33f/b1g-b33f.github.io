@@ -1,10 +1,12 @@
 <details style="float:left; width:250px; margin-right:20px;">
-<summary><strong>All Posts</strong></summary>
-
-{% for post in site.posts %}
-- [{{ post.title }}]({{ post.url | relative_url }})
-{% endfor %}
-
+  <summary><strong>All Posts</strong></summary>
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 </details>
 
 ![Banner](https://github.com/user-attachments/assets/4287d2a3-d69b-474d-9213-5c12236bd635)
@@ -39,3 +41,4 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar now employed in
 
 ### Contact Me
 - [Email](mailto:shawnszczepkowski@gmail.com)
+
