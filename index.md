@@ -1,4 +1,19 @@
+<!-- Mobile scaling + layout fixes -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
+  /* Ensure images (banner) never overflow on mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Prevent layout from causing mobile zoom-out */
+  .layout {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   /* Mobile sidebar fix */
   @media (max-width: 800px) {
     .layout {
@@ -74,4 +89,3 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 </div>
 
 ---
-
