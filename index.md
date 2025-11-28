@@ -5,7 +5,10 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 ---
 
 ### Connect with me
-<a href="https://linktr.ee/b1gb33f" style="padding:6px 12px; border:1px solid #ff2bd3; border-radius:4px; text-decoration:none; color:#ff2bd3; cursor:pointer;">
+<a href="https://linktr.ee/b1gb33f"
+   target="_blank"
+   rel="noopener noreferrer"
+   style="padding:6px 12px; border:1px solid #ff2bd3; border-radius:4px; text-decoration:none; color:#ff2bd3; cursor:pointer;">
   Linktree
 </a>
 
