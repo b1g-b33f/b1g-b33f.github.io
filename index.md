@@ -9,9 +9,7 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 ## [{{ most_recent_post.title }}]({{ most_recent_post.url | relative_url }})
 *{{ most_recent_post.date | date: "%B %d, %Y"}}*
 
-{{ most_recent_post.excerpt }}
-
-[Read more]({{ most_recent_post.url | relative_url }})
+{{ most_recent_post.content }}
 
 ---
 
