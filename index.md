@@ -1,38 +1,71 @@
-<!-- Mobile scaling + layout fixes -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-  /* Ensure images (banner) never overflow on mobile */
+  /* Make images (banner, etc.) scale nicely on small screens */
   img {
     max-width: 100%;
     height: auto;
   }
 
-  /* Prevent layout from causing mobile zoom-out */
+  /* Two-column layout on desktop */
   .layout {
-    max-width: 100%;
-    overflow-x: hidden;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap; /* allows wrapping instead of forcing overflow */
   }
 
-  /* Mobile sidebar fix */
+  .layout-main {
+    flex: 3 1 0;
+    min-width: 0;
+  }
+
+  .sidebar {
+    flex: 1 1 0;
+    font-size: 0.9em;
+    padding-left: 1rem;
+    border-left: 2px solid #ff2bd3;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 0.75em;
+  }
+
+  .sidebar a {
+    color: #ff2bd3;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .sidebar-date {
+    font-size: 0.8em;
+    color: #d87abf;
+  }
+
+  /* On small screens, stack main + sidebar vertically */
   @media (max-width: 800px) {
     .layout {
       flex-direction: column;
     }
     .sidebar {
-      border-left: none !important;
-      border-top: 2px solid #ff2bd3 !important;
-      padding-left: 0 !important;
-      padding-top: 1rem !important;
-      margin-top: 1.5rem !important;
+      border-left: none;
+      border-top: 2px solid #ff2bd3;
+      padding-left: 0;
+      padding-top: 1rem;
+      margin-top: 1.5rem;
     }
   }
 </style>
 
-<div class="layout" style="display:flex; gap:2rem; align-items:flex-start;">
+<div class="layout">
 
   <!-- MAIN CONTENT -->
-  <div style="flex:3; min-width:0;" markdown="1">
+  <div class="layout-main" markdown="1">
 
 ![Banner](/assets/images/new_banner.png)
 
@@ -64,24 +97,21 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
   </div>
 
   <!-- SIDEBAR -->
-  <aside class="sidebar" style="flex:1; min-width:220px; padding-left:1rem; border-left:2px solid #ff2bd3; font-size:0.9em;">
+  <aside class="sidebar">
 
     <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
 
-    <ul style="list-style:none; padding-left:0;">
-
+    <ul>
     {% for post in site.posts %}
-      <li style="margin-bottom:0.75em;">
-        <a href="{{ post.url | relative_url }}"
-           style="color:#ff2bd3; text-decoration:none; font-weight:600; cursor:pointer;">
+      <li>
+        <a href="{{ post.url | relative_url }}">
           {{ post.title }}
         </a><br>
-        <span style="font-size:0.8em; color:#d87abf;">
+        <span class="sidebar-date">
           {{ post.date | date: "%b %d, %Y" }}
         </span>
       </li>
     {% endfor %}
-
     </ul>
 
   </aside>
