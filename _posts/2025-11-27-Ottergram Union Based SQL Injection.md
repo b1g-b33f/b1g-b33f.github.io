@@ -3,6 +3,7 @@ title: "Ottergram Union Based SQL Injection"
 date: 2025-11-27
 author: Shawn Szczepkowski
 ---
+Today we will be covering the Ottergram SQLi lab from [bugforge.io](https://bugforge.io). This is an easy rated lab.
 
 While exploring the application and testing different endpoints for SQL Injection we observe that the `/api/profile/{user}` endpoint appears to be vulnerable to boolean based SQL injection:
 
