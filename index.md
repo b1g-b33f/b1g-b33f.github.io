@@ -14,7 +14,7 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 ---
 
 <details>
-  <summary><strong>All Posts</strong></summary>
+  <summary><h2 style="display:inline; color:#ff2bd3; font-weight:700;">All Posts</h2></summary>
 
   <ul>
   {% for post in site.posts %}
