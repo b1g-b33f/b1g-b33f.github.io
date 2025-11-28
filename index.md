@@ -31,6 +31,6 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 ---
 
 ### Connect with me
-[Linktree]([https://linktr.ee/b1gb33f)
-
-
+<a href="https://linktr.ee/b1gb33f" style="padding:6px 12px; border:1px solid #ff2bd3; border-radius:4px; text-decoration:none; color:#ff2bd3; cursor:pointer;">
+  Linktree
+</a>
