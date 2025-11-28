@@ -2,6 +2,14 @@
 
 Welcome to the blog! I'm Shawn, a former manager and blue collar worker now employed in the world of offensive security. I'm hoping to share some of my journey and what I've learned along the way. I'm currently focused on web app pentesting and application security but constantly learning other areas of pentesting as well.
 
+---
+
+### Connect with me
+<a href="https://linktr.ee/b1gb33f" style="padding:6px 12px; border:1px solid #ff2bd3; border-radius:4px; text-decoration:none; color:#ff2bd3; cursor:pointer;">
+  Linktree
+</a>
+
+---
 # Most Recent Post
 
 {% assign most_recent_post = site.posts.first %}
@@ -29,8 +37,3 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 </details>
 
 ---
-
-### Connect with me
-<a href="https://linktr.ee/b1gb33f" style="padding:6px 12px; border:1px solid #ff2bd3; border-radius:4px; text-decoration:none; color:#ff2bd3; cursor:pointer;">
-  Linktree
-</a>
