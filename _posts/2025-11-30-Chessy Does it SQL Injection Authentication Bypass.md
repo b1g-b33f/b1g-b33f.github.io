@@ -4,6 +4,8 @@ date: 2025-11-30
 author: Shawn Szczepkowski
 ---
 
+Today we will be covering the Cheesy Does it SQL Inejection lab from [bugforge.io](https://bugforge.io). This is an easy rated lab.
+
 We know todays lab is SQL Injection but as usual we don't know where. After registering a user and exploring the sites functionality I was not getting a hit on anything. 
 
 When looking for SQL Injection in labs like this, I tend to look at the login last. It appears I should have started there first.
