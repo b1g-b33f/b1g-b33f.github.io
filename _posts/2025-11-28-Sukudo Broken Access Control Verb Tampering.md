@@ -4,6 +4,8 @@ date: 2025-11-28
 author: Shawn Szczepkowski
 ---
 
+Today we will be covering the Sokudo Broken Access Control lab from [bugforge.io](https://bugforge.io). This is an easy rated lab.
+
 We start out by registering a user and checking our current permissions:
 #### User registration request
 ```http
