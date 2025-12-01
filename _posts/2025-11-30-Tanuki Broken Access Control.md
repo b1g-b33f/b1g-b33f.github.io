@@ -53,5 +53,12 @@ Etag: W/"af-nGRa89VgfRVEGqXmvThQKIV9T6I"
 X-Powered-By: Express
 Content-Length: 175
 
-{"total_cards_studied":0,"cards_mastered":0,"total_reviews":null,"sessions_this_week":0,"cards_studied_this_week":0,"achievement_flag":"bug{643884f69ef5626f1490c5dee5592ddd}"}
+{
+  "total_cards_studied":0,
+  "cards_mastered":0,
+  "total_reviews":null,
+  "sessions_this_week":0,
+  "cards_studied_this_week":0,
+  "achievement_flag":"bug{643884f69ef5626f1490c5dee5592ddd}"
+}
 ```
