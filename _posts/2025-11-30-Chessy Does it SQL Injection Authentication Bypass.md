@@ -1,5 +1,5 @@
 ---
-title: "Cheesy Does it SQL Inejection Authentication Bypass"
+title: "Cheesy Does it SQL Injection Authentication Bypass"
 date: 2025-11-30
 author: Shawn Szczepkowski
 ---
