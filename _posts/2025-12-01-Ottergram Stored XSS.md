@@ -59,7 +59,7 @@ Priority: u=1, i
 {"recipient_id":5,"content":"<img src=x onerror=alert('XSS');>"}
 ```
 We have success:
-[Stored XSS](/assets/images/Pasted image 20251201192541.png)
+![Stored XSS](/assets/images/Pasted image 20251201192541.png)
 
 Let's try grabbing local storage of the Admin user since the app is not using cookies but rather JWT's.
 
