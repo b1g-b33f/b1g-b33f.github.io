@@ -4,9 +4,11 @@ date: 2025-12-3
 author: Shawn Szczepkowski
 ---
 
+Today we will be covering Shady Oaks Financial Forceful Browsing lab from [bugforge.io](https://bugforge.io). This is an easy rated lab.
+
 The lab has a forceful browsing vulnerability. With this we will look for any high value endpoints that we probably aren't supposed to see, but just don't have the proper access controls in place.
 
-For something like this we could generally use directory busting or crawling to discover hidden content, maybe we would find a hidden endpoint in a JavaScript file, but let's try a few common sense things like `/admin` and `/administrator` first.
+For something like this we could generally use directory busting or crawling to discover hidden content, or maybe we would find a hidden endpoint in a JavaScript file, but let's try a few common sense things like `/admin` and `/administrator` first.
 
 Visiting `https://03d42aaeda7a.labs.bugforge.io/admin` immediately we see our flag in the admin panel, delivered by an API request to `/api/admin/flag`:
 ```http
