@@ -3,15 +3,31 @@
     box-sizing: border-box;
   }
 
+  /* Make images behave */
   img {
     max-width: 100%;
     height: auto;
     display: block;
   }
 
-  pre {
+  /* Clamp code blocks + syntax highlighter wrappers */
+  pre,
+  .highlight {
     max-width: 100%;
     overflow-x: auto;
+  }
+
+  /* Let long words/URLs/JWTs wrap instead of stretching the page */
+  .layout-main,
+  .layout-main p,
+  .layout-main li,
+  .layout-main code,
+  .layout-main a,
+  .sidebar,
+  .sidebar li,
+  .sidebar a {
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
   }
 
   .layout {
@@ -59,16 +75,24 @@
     color: #d87abf;
   }
 
+  /* Mobile tweaks */
   @media (max-width: 800px) {
     .layout {
       flex-direction: column;
     }
+
     .sidebar {
       border-left: none;
       border-top: 2px solid #ff2bd3;
       padding-left: 0;
       padding-top: 1rem;
       margin-top: 1.5rem;
+    }
+
+    /* Slightly smaller text on mobile to make things feel closer to desktop layout */
+    .layout-main,
+    .sidebar {
+      font-size: 0.95em;
     }
   }
 </style>
@@ -107,16 +131,20 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
   </div>
 
   <aside class="sidebar">
+
     <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
 
     <ul>
     {% for post in site.posts %}
       <li>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a><br>
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title }}
+        </a><br>
         <span class="sidebar-date">{{ post.date | date: "%b %d, %Y" }}</span>
       </li>
     {% endfor %}
     </ul>
+
   </aside>
 
 </div>
