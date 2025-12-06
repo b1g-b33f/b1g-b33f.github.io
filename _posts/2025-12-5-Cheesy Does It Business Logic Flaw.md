@@ -11,7 +11,7 @@ In this lab we see an application for placing orders at a pizza shop. Todays hin
 While walking through the lab we notice that the `unit_price` and `total_price` are shown in our POST request to `/api/orders`. We should try and change that to see what happens. Obviously if the customer could change the price of the order this would not be good for the company.
 
 Let's change the `unit_price` amd `total_price` from this:
-```http
+```sh
 POST /api/orders HTTP/2
 Host: 5913a891963c.labs.bugforge.io
 Content-Length: 301
@@ -61,7 +61,7 @@ Priority: u=1, i
 We get a 200 ok response telling us our order was created successfully. But did it actually change the price?
 
 In a GET request to `/api/orders/2` we confirm the price of our order did actually change, and we receive our flag. Remember folks, just because it's not an option in the UI doesn't mean it can't be changed.
-```http
+```sh
 HTTP/2 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
