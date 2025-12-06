@@ -1,5 +1,4 @@
 <style>
-  /* Make sure the page never exceeds screen width */
   html, body {
     max-width: 100%;
     overflow-x: hidden;
@@ -79,10 +78,9 @@
   }
 </style>
 
-
 <div class="layout">
 
-<div class="layout-main">
+  <div class="layout-main" markdown="1">
 
 ![Banner](/assets/images/new_banner.png)
 
@@ -111,19 +109,19 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 
 ---
 
-</div>
+  </div>
 
-<aside class="sidebar">
-  <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
+  <aside class="sidebar">
+    <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
 
-  <ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a><br>
-      <span class="sidebar-date">{{ post.date | date: "%b %d, %Y" }}</span>
-    </li>
-  {% endfor %}
-  </ul>
-</aside>
+    <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a><br>
+        <span class="sidebar-date">{{ post.date | date: "%b %d, %Y" }}</span>
+      </li>
+    {% endfor %}
+    </ul>
+  </aside>
 
 </div>
