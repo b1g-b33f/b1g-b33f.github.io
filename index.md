@@ -1,109 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+---
+title: "Home"
+---
 
-  <!-- MOBILE FIX (required) -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  /* Make sure the page never exceeds screen width */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
-  <title>{{ page.title | default: site.title }}</title>
+  * {
+    box-sizing: border-box;
+  }
 
-  {{ site.head }}
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
 
-    html, body {
-      margin: 0;
-      padding: 0;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
+  .layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+  }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+  .layout-main {
+    flex: 3 1 0;
+    min-width: 0;
+  }
 
-    pre {
-      max-width: 100%;
-      overflow-x: auto;
-      padding: 0.75rem;
-      background: #1a1a1a;
-      border-radius: 6px;
-    }
+  .sidebar {
+    flex: 1 1 0;
+    max-width: 100%;
+    padding-left: 1rem;
+    border-left: 2px solid #ff2bd3;
+    font-size: 0.9em;
+  }
 
+  .sidebar ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 0.75em;
+  }
+
+  .sidebar a {
+    color: #ff2bd3;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .sidebar-date {
+    font-size: 0.8em;
+    color: #d87abf;
+  }
+
+  @media (max-width: 800px) {
     .layout {
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      width: 100%;
+      flex-direction: column;
     }
-
-    .layout-main {
-      flex: 3 1 0;
-      min-width: 0;
-    }
-
     .sidebar {
-      flex: 1 1 0;
-      max-width: 100%;
-      font-size: 0.9em;
-      padding-left: 1rem;
-      border-left: 2px solid #ff2bd3;
-    }
-
-    .sidebar ul {
-      list-style: none;
+      border-left: none;
+      border-top: 2px solid #ff2bd3;
       padding-left: 0;
-      margin: 0;
+      padding-top: 1rem;
+      margin-top: 1.5rem;
     }
+  }
+</style>
 
-    .sidebar li {
-      margin-bottom: 0.75em;
-    }
 
-    .sidebar a {
-      color: #ff2bd3;
-      text-decoration: none;
-      font-weight: 600;
-    }
+<div class="layout">
 
-    .sidebar-date {
-      font-size: 0.8em;
-      color: #d87abf;
-    }
-
-    @media (max-width: 800px) {
-      .layout {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        border-left: none;
-        border-top: 2px solid #ff2bd3;
-        padding-left: 0;
-        padding-top: 1rem;
-        margin-top: 1.5rem;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="layout">
-
-    <!-- MAIN CONTENT -->
-    <div class="layout-main" markdown="1">
+<div class="layout-main">
 
 ![Banner](/assets/images/new_banner.png)
 
@@ -132,26 +115,19 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 
 ---
 
-    </div>
+</div>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
+<aside class="sidebar">
+  <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
 
-      <ul>
-      {% for post in site.posts %}
-        <li>
-          <a href="{{ post.url | relative_url }}">
-            {{ post.title }}
-          </a><br>
-          <span class="sidebar-date">{{ post.date | date: "%b %d, %Y" }}</span>
-        </li>
-      {% endfor %}
-      </ul>
-    </aside>
+  <ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a><br>
+      <span class="sidebar-date">{{ post.date | date: "%b %d, %Y" }}</span>
+    </li>
+  {% endfor %}
+  </ul>
+</aside>
 
-  </div>
-
-</body>
-</html>
-
+</div>
