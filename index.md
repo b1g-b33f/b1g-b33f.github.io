@@ -1,9 +1,4 @@
 <style>
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
   * {
     box-sizing: border-box;
   }
