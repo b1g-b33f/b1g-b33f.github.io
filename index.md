@@ -1,16 +1,34 @@
 <style>
-  /* Make images (banner, etc.) scale nicely on small screens */
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
   img {
     max-width: 100%;
     height: auto;
+    display: block;
   }
 
-  /* Two-column layout on desktop */
+  .page-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
   .layout {
     display: flex;
     gap: 2rem;
     align-items: flex-start;
-    flex-wrap: wrap; /* allows wrapping instead of forcing overflow */
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   .layout-main {
@@ -19,7 +37,8 @@
   }
 
   .sidebar {
-    flex: 1 1 0;
+    flex: 1 1 260px;
+    max-width: 100%;
     font-size: 0.9em;
     padding-left: 1rem;
     border-left: 2px solid #ff2bd3;
@@ -47,11 +66,11 @@
     color: #d87abf;
   }
 
-  /* On small screens, stack main + sidebar vertically */
   @media (max-width: 800px) {
     .layout {
       flex-direction: column;
     }
+
     .sidebar {
       border-left: none;
       border-top: 2px solid #ff2bd3;
@@ -62,10 +81,10 @@
   }
 </style>
 
-<div class="layout">
+<div class="page-wrapper">
+  <div class="layout">
 
-  <!-- MAIN CONTENT -->
-  <div class="layout-main" markdown="1">
+    <div class="layout-main" markdown="1">
 
 ![Banner](/assets/images/new_banner.png)
 
@@ -94,26 +113,23 @@ Welcome to the blog! I'm Shawn, a former manager and blue collar worker now empl
 
 ---
 
+    </div>
+
+    <aside class="sidebar">
+      <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
+      <ul>
+      {% for post in site.posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title }}
+          </a><br>
+          <span class="sidebar-date">
+            {{ post.date | date: "%b %d, %Y" }}
+          </span>
+        </li>
+      {% endfor %}
+      </ul>
+    </aside>
+
   </div>
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-
-    <h2 style="margin-top:0; color:#ff2bd3;">All Posts</h2>
-
-    <ul>
-    {% for post in site.posts %}
-      <li>
-        <a href="{{ post.url | relative_url }}">
-          {{ post.title }}
-        </a><br>
-        <span class="sidebar-date">
-          {{ post.date | date: "%b %d, %Y" }}
-        </span>
-      </li>
-    {% endfor %}
-    </ul>
-
-  </aside>
-
 </div>
