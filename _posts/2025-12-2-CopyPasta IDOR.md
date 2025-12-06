@@ -11,7 +11,7 @@ Exploring the labs functionality we note that we can view public snippets. We sh
 With that information in mind we notice that when viewing public snippets they go in order 1,2,3 etc. but if we are paying attention it's easy to notice snippet 4 is missing. 
 Let's send a request to `/api/snippet/4` using repeater and see what we can see.
 
-```http
+```sh
 GET /api/snippet/4 HTTP/2
 Host: 466ae2e4ce44.labs.bugforge.io
 Sec-Ch-Ua-Platform: "Linux"
@@ -30,7 +30,7 @@ Priority: u=1, i
 ```
 
 Sure enough we are able to view the user `pythonista's` private snippet and retrieve our flag:
-```http
+```sh
 HTTP/2 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
