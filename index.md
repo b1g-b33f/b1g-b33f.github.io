@@ -1,7 +1,3 @@
----
-title: "Home"
----
-
 <style>
   /* Make sure the page never exceeds screen width */
   html, body {
