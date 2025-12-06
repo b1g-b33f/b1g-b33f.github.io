@@ -12,7 +12,7 @@ Authorization: Bearer 20251205000042
 ```
 
 A token like this  has very weak entropy and could easily be bruteforced, but being a time stamp let's also draw some attention to another interesting endpoint `/api/stats/leaderboard `. In the response we can see the last login information of each user. What if this time stamp token is based off that? We could test our users token to see if it matches our last login, but since this is so easy to try let's create one based off the admin users last login.
-```http
+```sh
 HTTP/2 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
