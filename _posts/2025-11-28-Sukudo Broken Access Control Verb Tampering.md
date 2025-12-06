@@ -8,7 +8,7 @@ Today we will be covering the Sokudo Broken Access Control lab from [bugforge.io
 
 We start out by registering a user and checking our current permissions:
 #### User registration request
-```http
+```sh
 POST /api/register HTTP/2
 Host: 75ff57597ba6.labs.bugforge.io
 Content-Length: 85
@@ -65,7 +65,7 @@ Priority: u=1, i
 ```
 
 #### Stats response
-```http
+```sh
 HTTP/2 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
@@ -82,7 +82,7 @@ As part of our normal testing we should be checking to see if endpoints accept d
 In this case I was able to discover that `/api/stats` also returns an interesting response when we attempt to send a PUT request:
 
 #### PUT request
-```http
+```sh
 PUT /api/stats HTTP/2
 Host: 75ff57597ba6.labs.bugforge.io
 Sec-Ch-Ua-Platform: "Linux"
@@ -117,7 +117,7 @@ Content-Length: 37
 The ability to change ones stats is not present anywhere in the applications UI and does not appear intended, so let's send some data and see what it returns:
 
 #### PUT request with data
-```http
+```sh
 PUT /api/stats HTTP/2
 Host: 75ff57597ba6.labs.bugforge.io
 Sec-Ch-Ua-Platform: "Linux"
@@ -143,7 +143,7 @@ Content-Type: application/json
 
 It looks like we can in fact update another users stats and we are greeted with our flag:
 #### PUT request with data response
-```http
+```sh
 HTTP/2 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
