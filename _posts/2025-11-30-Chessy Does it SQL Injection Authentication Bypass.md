@@ -13,7 +13,7 @@ When looking for SQL Injection in labs like this, I tend to look at the login la
 Let's send some simple payloads that evaluate to true first and see if we get any type of error or alteration in response.
 
 I'll start with a simple one in the username field:
-```http
+```sh
 POST /api/login HTTP/2
 Host: cc33386d68f0.labs.bugforge.io
 Content-Length: 55
@@ -36,7 +36,7 @@ Priority: u=1, i
 ```
 
 And it looks like that's all it took to get our flag today. A nice reminder to never skip the easy stuff:
-```http
+```sh
 HTTP/2 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
