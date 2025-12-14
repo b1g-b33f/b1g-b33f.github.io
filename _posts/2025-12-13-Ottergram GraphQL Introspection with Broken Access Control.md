@@ -10,9 +10,10 @@ While exploring the functionality of the lab we notice and interesting POST to `
 This can give us insight into features that the user is not supposed to see and may not be properly secured.
 
 We send our request to Repeater and using Burp's GraphQL functionality we can set an introspection query:
+
 ![Introspection Query](/assets/images/Pasted%20image%2020251210191936.png)
 
-We do in fact receive a 200 response and this is a LOT of information to sort through. It helps to use a graphql-visualizer. If this was client data we could set one up locally but for a lab like this using a site like http://nathanrandal.com/graphql-visualizer/ is fine.
+We do in fact receive a `200` response and this is a LOT of information to sort through. It helps to use a graphql-visualizer. If this was client data we could set one up locally but for a lab like this using a site like [http://nathanrandal.com/graphql-visualizer/](http://nathanrandal.com/graphql-visualizer/) is fine.
 
 We paste our introspection result into the Introspection result field of the site, and are met with our visualization.
 
