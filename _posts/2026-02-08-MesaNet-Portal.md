@@ -1,3 +1,9 @@
+---
+title: "MesaNet Portal"
+date: 2026-02-01
+author: Shawn Szczepkowski
+---
+
 While exploring the lab we see the ability to send and view mail and notes. As we explore some more we will also see that we have `/dev` endpoint that takes an OTP and probably does something cool. With some fuzzing we will also find a `/db` endpoint that requires some admin credentials and is not likely our initial target.
 
 Browsing the applications nexus we see that we can access notes left by other users. If we play with different values in the app id we will notice an interesting message if we user `true` or `00000000-0000-0000-0000-000000000000`.
