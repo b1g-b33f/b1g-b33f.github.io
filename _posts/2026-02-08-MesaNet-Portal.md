@@ -4,9 +4,9 @@ date: 2026-02-08
 author: Shawn Szczepkowski
 ---
 
-While exploring the lab we see the ability to send and view mail and notes. As we explore some more we will also see that we have `/dev` endpoint that takes an OTP and probably does something cool. With some fuzzing we will also find a `/db` endpoint that requires some admin credentials and is not likely our initial target.
+While exploring the lab we see the ability to send and view mail and notes. As we explore some more we will also see that we have a `/dev` endpoint that takes an OTP and probably does something cool. With some fuzzing we will also find a `/db` endpoint that requires some admin credentials and is not likely our initial target.
 
-Browsing the applications nexus we see that we can access notes left by other users. If we play with different values in the app id we will notice an interesting message if we user `true` or `00000000-0000-0000-0000-000000000000`.
+Browsing the applications nexus we see that we can access notes left by other users. If we play with different values in the app id we will notice an interesting message if we use `true` or `00000000-0000-0000-0000-000000000000`.
 ```sh
 POST /gateway HTTP/2
 Host: lab-1770597776650-bd14gm.labs-app.bugforge.io
@@ -48,7 +48,7 @@ Content-Length: 35
 }
 ```
 
-Fuzzing `/api/rail/FUZZ` with the raft medium list from seclists we will see some interesting endpoints returned.
+Fuzzing `/api/rail/FUZZ` as our endpoint with the raft medium list from seclists we will see some interesting endpoints returned.
 ```txt
 status
 schedule
@@ -148,7 +148,7 @@ Content-Length: 41
 
 We love 500 errors.
 
-A quick SQLite test gets us SQLite results.
+A quick SQLite test in the message paramter gets us SQLite results in the response.
 ```sql
 test' || (SELECT sqlite_version()) || '
 
@@ -288,7 +288,7 @@ By fuzzing the POST request to `/db/backup` we will get a couple of hits. We alr
 
 Download and take a peek at the contents.
 
-You'll notice in portalDb we have another config table. Viewing the contents we will see that we have have our OTP that we needed. I did that challenge from Windows so I just used the DB Browser for SQLite app [here](https://sqlitebrowser.org/).
+You'll notice in portalDb we have another config table. Viewing the contents we will see that we have have our OTP that we needed for `/dev`. I did the challenge from Windows so I just used the DB Browser for SQLite app [here](https://sqlitebrowser.org/).
 ![mesa2](/assets/images/Pasted%20image%2020260208201359.png)
 
 Now download it again and this time - time it correctly and be ready to beat the 60 second OTP clock. Once you enter the OTP in `/dev` you'll be met with the flag.
