@@ -280,15 +280,15 @@ I asked Claude to make me a Half-Life themed db fuzzing list and add it to the r
 {"database":"transitAppDb"}
 ```
 
-By fuzzing the POST request to `/db/backup` we will get a couple of hits:
+By fuzzing the POST request to `/db/backup` we will get a couple of hits. We already knew about the rail db so we likely want to get our hands on portal:
 ```JSON
 {"database":"railDb"}
 {"database":"portalDb"}
 ```
 
-Download those and take a peek at the contents.
+Download and take a peek at the contents.
 
-You'll notice in portalDb we have another config table. Viewing the contents we will see that we have have our OTP that we needed.
+You'll notice in portalDb we have another config table. Viewing the contents we will see that we have have our OTP that we needed. I did that challenge from Windows so I just used the DB Browser for SQLite app ![here](https://sqlitebrowser.org/).
 ![mesa2](/assets/images/Pasted%20image%2020260208201359.png)
 
 Now download it again and this time - time it correctly and be ready to beat the 60 second OTP clock. Once you enter the OTP in `/dev` you'll be met with the flag.
