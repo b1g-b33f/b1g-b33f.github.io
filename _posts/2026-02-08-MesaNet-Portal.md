@@ -288,7 +288,7 @@ By fuzzing the POST request to `/db/backup` we will get a couple of hits. We alr
 
 Download and take a peek at the contents.
 
-You'll notice in portalDb we have another config table. Viewing the contents we will see that we have have our OTP that we needed. I did that challenge from Windows so I just used the DB Browser for SQLite app ![here](https://sqlitebrowser.org/).
+You'll notice in portalDb we have another config table. Viewing the contents we will see that we have have our OTP that we needed. I did that challenge from Windows so I just used the DB Browser for SQLite app [here](https://sqlitebrowser.org/).
 ![mesa2](/assets/images/Pasted%20image%2020260208201359.png)
 
 Now download it again and this time - time it correctly and be ready to beat the 60 second OTP clock. Once you enter the OTP in `/dev` you'll be met with the flag.
